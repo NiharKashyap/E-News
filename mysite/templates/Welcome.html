@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <Title>
+            Index
+        </Title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/welcome.css' %}">
+    </head>
+    <body>
+        <div class="navbar">
+            <div class="brand">
+                <p><img src="{% static 'assets/news.jpg' %}" height="50px" width="50px" alt="">  VAARTAH</p>
+            </div>
+            <ul class="links">
+                <li><i class="fas fa-sign-in-alt"></i><a href="/login/">Login</a></li>
+                <li><i class="fas fa-user-plus"></i><a href="/register/">Register</a></li>
+                <li><i class="fas fa-edit"></i><a href="/editor">Editor Dashboard</a></li>
+                <li><i class="fas fa-bookmark"></i><a href="/GetBook/">Bookmarks</a></li>
+                <li><i class="fas fa-home"></i><a href="/">Home</a></li>
+            </ul>
+
+            
+        </div>
+        <div class="container">
+        
+            <div class="card mb-4" style="box-shadow: 10px 10px #fb4c1f;">
+            {% for n in page_obj %}
+            <div id ="newses" class="card-body">
+                <h2 class="card-title">{{n.title}}</h2>
+                <p class="card-text">{{n.body}}</p>
+
+                <a class="btn btn-primary" href="/book/{{n.id}}/">Bookmark</a>
+                <a class="btn btn-primary" href="/full/{{n.id}}/">Read More →</a>
+            </div>
+            <div class="card-footer text-muted">
+                Posted on {{n.posted}}
+            </div>
+            {% endfor %}
+            </div>
+            <div class="pagination">
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                        <a href="?page=1">&laquo; first</a>
+                        <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                    {% endif %}
+            
+                    <span class="current">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                    </span>
+            
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}">next</a>
+                        <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                    {% endif %}
+                </span>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="{% static 'js/scripts.js' %}"></script>
+    </body>
+</html>

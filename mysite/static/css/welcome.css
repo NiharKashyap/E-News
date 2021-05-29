@@ -1,0 +1,56 @@
+body
+{
+    background: #fe793d;
+}
+.card-body
+{
+    background: azure;
+}
+.card-footer
+{
+    background: white ;
+}
+.navbar
+{
+    background: azure;
+    padding: 5px;
+    border-radius: 0.25rem;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    margin-bottom: 10px;
+}
+li
+{
+    list-style: none;
+    float: right;
+    margin-right: 20px;
+}
+/*
+li:hover
+{
+    color: orange;
+}
+*/
+.navbar ul li a
+{
+    text-decoration: none;
+    color: black;
+}
+.navbar ul li a:hover
+{
+    color: orange;
+}
+i
+{
+    margin-right: 3px;
+}
+.brand
+{   padding-top: 5px;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+.links
+{
+    display: inline;
+}

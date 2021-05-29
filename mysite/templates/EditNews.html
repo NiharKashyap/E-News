@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>
+            Edit News
+        </title>
+    </head>
+    <body>
+        <div>
+        <form action="/editNews/{{id}}/" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Submit">
+        </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student Login</title>
+    {% load static %}
+        <link rel="stylesheet" href="{% static 'css/login.css' %}" type = "text/css"/>
+</head>
+<body>
+	
+    <h2>Welcome Editor</h2>
+    <a href="/addNews/">Add News</a>
+    {% for item in items %}
+    <p>{{item.title}} <a href="/editNews/{{item.id}}">Edit</a> </p>    
+    {% endfor %}
+</body>
+</html>

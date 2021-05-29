@@ -1,0 +1,45 @@
+{% load static %}
+<html>
+    <head>
+        <title>
+            {% for n in news %}
+            {{n.title}}
+            {% endfor %}
+        </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/full.css' %}">
+        <link rel="stylesheet" href="{% static 'css/all.css ' %}">
+    </head>
+    <body>
+        <div class="navbar">
+            <div class="brand">
+                <p><img src="{% static 'assets/news.jpg' %}" height="50px" width="50px" alt="">  VAARTAH</p>
+            </div>
+            <ul class="links">
+                <li><i class="fas fa-sign-in-alt"></i><a href="/login/">Login</a></li>
+                <li><i class="fas fa-user-plus"></i><a href="/register/">Register</a></li>
+                <li><i class="fas fa-edit"></i><a href="/editor">Editor Dashboard</a></li>
+                <li><i class="fas fa-bookmark"></i><a href="/GetBook/">Bookmarks</a></li>
+                <li><i class="fas fa-home"></i><a href="/">Home</a></li>
+            </ul>
+
+            
+        </div>
+        <div class="Outer">
+        {% for n in news %}
+            <div class="blog-post">
+                <h1 class="blog-post-title">{{n.title}}</h2>
+                
+                <p class="blog-post-meta">Posted on {{n.posted}}</p>
+                <hr color="black">
+                <p>{{n.body}}</p>
+                <a class="btn btn-primary" href="/full/{{n.id}}/">Bookmark →</a>
+            </div>
+            {% endfor %}
+        </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="{% static 'js/scripts.js' %}"></script>
+    </body>
+</html>
