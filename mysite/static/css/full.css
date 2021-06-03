@@ -6,7 +6,7 @@ body
 {
 
     /*background: url("/static/assets/background.png");*/
-    background: #fe793d;
+    background-image: url('/static/assets/texture.jpg');
 }
 /*NAVBAR CSS*/
 .navbar
@@ -14,9 +14,8 @@ body
     background: azure;
     padding: 5px;
     border-radius: 0.25rem;
-    top: 2px;
-    left: 2px;
-    right: 2px;
+
+    margin-bottom: 10px;
 }
 li
 {
@@ -24,12 +23,7 @@ li
     float: right;
     margin-right: 20px;
 }
-/*
-li:hover
-{
-    color: orange;
-}
-*/
+
 .navbar ul li a
 {
     text-decoration: none;
@@ -54,7 +48,7 @@ i
 }
 .Outer
 {
-    background-color: azure;
+    background-color: #fbc680;;
     position: absolute;
     height: 80%;
     padding: 20px;
@@ -70,5 +64,24 @@ h1
 {
     border: 5px;
     text-align: center;
+}
+
+i
+{
+    color:#fe793d;
+}
+
+ul
+{
+    margin-bottom: 0px;
+}
+.container
+{
+    padding-left: 0px;
+}
+.btn
+{
+    color: black;
+    background: #c2d1e5;
 }
 

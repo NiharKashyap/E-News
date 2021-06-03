@@ -1,23 +1,21 @@
 body
 {
-    background: #fe793d;
+    /*background: #fe793d;*/
+    background-image: url('/static/assets/texture.jpg');
 }
 .card-body
 {
-    background: azure;
+    background: #fbc680;
 }
 .card-footer
 {
-    background: white ;
+    background: #fbc6d0 ;
 }
 .navbar
 {
     background: azure;
     padding: 5px;
     border-radius: 0.25rem;
-    top: 2px;
-    left: 2px;
-    right: 2px;
     margin-bottom: 10px;
 }
 li
@@ -26,12 +24,7 @@ li
     float: right;
     margin-right: 20px;
 }
-/*
-li:hover
-{
-    color: orange;
-}
-*/
+
 .navbar ul li a
 {
     text-decoration: none;
@@ -39,18 +32,36 @@ li:hover
 }
 .navbar ul li a:hover
 {
-    color: orange;
+    color:#fe793d;
 }
 i
 {
     margin-right: 3px;
 }
 .brand
-{   padding-top: 5px;
+{ 
     margin-top: 5px;
     margin-left: 10px;
 }
 .links
 {
     display: inline;
+}
+i
+{
+    color:#fe793d;
+}
+
+ul
+{
+    margin-bottom: 0px;
+}
+.container
+{
+    padding-left: 0px;
+}
+.btn
+{
+    color: black;
+    background: #c2d1e5;
 }
