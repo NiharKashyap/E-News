@@ -32,17 +32,22 @@
     <div class="container">
 
         <div class="card mb-4" style="box-shadow: 10px 10px #fb4c1f;">
-            {% for b in Books %}
-            <div id="newses" class="card-body">
-                <h2 class="card-title">{{b.title}}</h2>
-                <p class="card-text">{{b.body}}</p>
+            {% if request.user.is_athenticated %}
 
-                <a class="btn btn-primary" href="/full/{{b.id}}/">Read More →</a>
-            </div>
-            <div class="card-footer">
-                Posted on {{b.posted}}
-            </div>
-            {% endfor %}
+                {% for b in Books %}
+                <div id="newses" class="card-body">
+                    <h2 class="card-title">{{b.title}}</h2>
+                    <p class="card-text">{{b.body}}</p>
+
+                    <a class="btn btn-primary" href="/full/{{b.id}}/">Read More →</a>
+                </div>
+                <div class="card-footer">
+                    Posted on {{b.posted}}
+                </div>
+                {% endfor %}
+            {% else %}
+            <h2>You Need to login first to see bookmarks</h2>
+            {% endif %}
         </div>
     </div>
 </body>
