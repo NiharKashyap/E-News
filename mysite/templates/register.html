@@ -3,7 +3,7 @@
 <html>
 <head>
 	<title>Student registration</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}"
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
 </head>
 <body>
 	<form class="log" action="/register/" method="post">
@@ -13,7 +13,7 @@
             <input class="name" id= "p1" type="password" name="password1" placeholder="password">
             <input class="name" id= "p2" type="password" name="password2" placeholder="Confirm password">
             <input id = "bttn" type="submit" name="" onclick="return Validate()" value="Submit">
-    </form>
+        </form>
     <script type="text/javascript">
     function Validate() {
         var password = document.getElementById("p1").value;

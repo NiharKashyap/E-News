@@ -1,16 +1,45 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Student Login</title>
-    {% load static %}
-        <link rel="stylesheet" href="{% static 'css/login.css' %}" type = "text/css"/>
+    <title>Editor Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/editor.css ' %}">
 </head>
+
 <body>
-	
-    <h2>Welcome Editor</h2>
-    <a href="/addNews/">Add News</a>
-    {% for item in items %}
-    <p>{{item.title}} <a href="/editNews/{{item.id}}">Edit</a> </p>    
-    {% endfor %}
+    <div class="navbar">
+        <div class="brand">
+            <img src="{% static 'assets/Brand2.png' %}" height="50px" alt="">
+        </div>
+        <ul class="links">
+            {% if request.user.is_authenticated %}
+            <li><i class="fas fa-sign-out-alt"></i><a href="/logout/">Logout</a></li>
+            {% else %}
+            <li><i class="fas fa-sign-in-alt"></i><a href="/login/">Login</a></li>
+            {% endif %}
+            <li><i class="fas fa-user-plus"></i><a href="/register/">Register</a></li>
+            <li><i class="fas fa-edit"></i><a href="/editor">Editor Dashboard</a></li>
+            <li><i class="fas fa-bookmark"></i><a href="/GetBook/">Bookmarks</a></li>
+            <li><i class="fas fa-home"></i><a href="/">Home</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <h2>WELCOME {{request.user|upper}}</h2>
+        <a class="btn btn-primary" href="/addNews/">Add News</a>
+        <div class="card mb-4" style="box-shadow: 10px 10px #fb4c1f;">
+            {% for item in items %}
+            <div id="newses" class="card-body">
+                <h2 class="card-title">{{item.title}}</h2>
+                <p class="card-text">{{item.body}}</p>
+                <a class="btn btn-primary" href="/editNews/{{item.id}}">Edit</a>
+            </div>
+            {% endfor %}
+    </div>
 </body>
+
 </html>

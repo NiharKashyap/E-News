@@ -38,12 +38,16 @@ def User_login(request):
             login(request, user)
             return redirect(index)
         else:
-            return redirect(login)
+            return redirect(User_login)
+
+def User_logout(request):
+    logout(request)
+    return redirect(index)
 
 #Landing Page
 def index(request):
-    books = BookMarks.objects.all().filter(user=request.user).values('news')
-    print(books)
+    #books = BookMarks.objects.all().filter(user=request.user).values('news')
+    #print(books)
     newses = News.objects.all()
     
     paginator = Paginator(newses, 10) # Show 25 contacts per page.
@@ -52,7 +56,6 @@ def index(request):
     page_obj = paginator.get_page(page_number)
     
     context = { 'news':newses,
-                'bookmarks': books,
                 'page_obj': page_obj}
     
     return render(request, 'Welcome.html', context)

@@ -1,16 +1,38 @@
+{% load static %}
 <html>
     <head>
         <title>
             Edit News
         </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+        <link rel="stylesheet" href="{% static 'css/add.css' %}">
     </head>
     <body>
-        <div>
-        <form action="/editNews/{{id}}/" method="post">
-            {% csrf_token %}
-            {{ form }}
-            <input type="submit" value="Submit">
-        </form>
+        <div class="navbar">
+            <div class="brand">
+                <img src="{% static 'assets/Brand2.png' %}" height="50px" alt="">
+            </div>
+            <ul class="links">
+                {% if request.user.is_authenticated %}
+                <li><i class="fas fa-sign-out-alt"></i><a href="/logout/">Logout</a></li>
+                {% else %}
+                <li><i class="fas fa-sign-in-alt"></i><a href="/login/">Login</a></li>
+                {% endif %}
+                <li><i class="fas fa-user-plus"></i><a href="/register/">Register</a></li>
+                <li><i class="fas fa-edit"></i><a href="/editor">Editor Dashboard</a></li>
+                <li><i class="fas fa-bookmark"></i><a href="/GetBook/">Bookmarks</a></li>
+                <li><i class="fas fa-home"></i><a href="/">Home</a></li>
+            </ul>
         </div>
-    </body>
+            <div class="container">
+                <h2>EDIT NEWS</h2>
+                <form action="/editNews/{{id}}/" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Submit">
+            </form>
+            </div>
+        </body>
 </html>

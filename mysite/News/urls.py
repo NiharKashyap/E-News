@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from News.models import BookMarks
 from django.urls import path
 
@@ -7,6 +8,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('full/<int:id>/', views.full),
     path('login/', views.User_login, name='login'),
+    path('logout/',views.User_logout),
     path('register/', views.user_register, name='index'),
     path('book/<int:n_id>/', views.create_bookmark, name="book"),
     path('GetBook/', views.get_bookmark, name="GetBook"),

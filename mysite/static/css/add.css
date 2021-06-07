@@ -3,27 +3,23 @@
 }
 body
 {
-    /*background: #fe793d;*/
     background-image: url('/static/assets/texture.jpg');
 }
-/* Hide scrollbar for Chrome, Safari and Opera */
-body::-webkit-scrollbar {
-    display: none;
-  }
-  
-  /* Hide scrollbar for IE, Edge and Firefox */
-body {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-  }
-.card-body
+.container
 {
-    background: #fbc680;
+    text-align: center;
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
-.card-footer
+textarea
 {
-    background: #fbc6d0 ;
+    width: 100%;
 }
+/*NAVBAR*/
 .navbar
 {
     background: azure;
@@ -68,13 +64,4 @@ i
 ul
 {
     margin-bottom: 0px;
-}
-.container
-{
-    padding-left: 0px;
-}
-.btn
-{
-    color: black;
-    background: #c2d1e5;
 }

@@ -11,6 +11,9 @@ class News(models.Model):
 
     class Meta:
         verbose_name_plural = 'News'
+        # sort by "the date" in descending order unless
+        # overridden in the query with order_by()
+        ordering = ['-posted']
 
     def __str__(self):
         return str(self.id)

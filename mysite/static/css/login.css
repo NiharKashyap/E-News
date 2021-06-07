@@ -1,0 +1,74 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color:#fbc680;
+    font-family: sans-serif;
+}
+
+.log{
+    width: 300px;
+    padding: 50px;
+    background-color: #F5F5F5;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    border-radius: 20px;
+}
+
+.log h1{
+    text-transform: uppercase;
+    color: black;
+    font-weight: 500;
+}
+
+.name{
+    border: 2px solid #40C4FF;
+    background: none;
+    margin: 15px auto;
+    display: block;
+    text-align: center;
+    padding: 10px 15px;
+    width: 200px;
+    outline: none;
+    color: #9E9E9E;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.log input[type = "text"]:focus, .log input[type = "password"]:focus{
+    width: 250px;
+    border-color: #D50000;
+}
+
+.log input[type = "submit"]{
+    position: relative;
+    border: 0;
+    border: 2px solid #40C4FF;
+    background: none;
+    margin: 15px auto;
+    display: block;  
+    padding: 10px 50px;
+    outline: none;
+    color: black;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.log input[type = "submit"]:hover{
+    background: #D50000;
+    border: 2px solid #D50000 ;
+}
+a:link {
+    text-decoration: none;
+  }
+  
+  a:visited {
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }

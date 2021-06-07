@@ -7,6 +7,7 @@ body
 
     /*background: url("/static/assets/background.png");*/
     background-image: url('/static/assets/texture.jpg');
+    overflow: hidden;
 }
 /*NAVBAR CSS*/
 .navbar
@@ -38,7 +39,7 @@ i
     margin-right: 3px;
 }
 .brand
-{   padding-top: 5px;
+{  
     margin-top: 5px;
     margin-left: 10px;
 }

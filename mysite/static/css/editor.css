@@ -16,14 +16,6 @@ body {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
   }
-.card-body
-{
-    background: #fbc680;
-}
-.card-footer
-{
-    background: #fbc6d0 ;
-}
 .navbar
 {
     background: azure;
@@ -69,12 +61,16 @@ ul
 {
     margin-bottom: 0px;
 }
-.container
+
+.main
 {
-    padding-left: 0px;
+    margin-left: 10px;
 }
-.btn
+.items
 {
-    color: black;
-    background: #c2d1e5;
+    background: #fbc680;
+}
+.card-body
+{
+    background: #fbc680;
 }

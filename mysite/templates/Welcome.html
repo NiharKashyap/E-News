@@ -15,7 +15,11 @@
                 <img src="{% static 'assets/Brand2.png' %}" height="50px" alt="">
             </div>
             <ul class="links">
+                {% if request.user.is_authenticated %}
+                <li><i class="fas fa-sign-out-alt"></i><a href="/logout/">Logout</a></li>
+                {% else %}
                 <li><i class="fas fa-sign-in-alt"></i><a href="/login/">Login</a></li>
+                {% endif %}
                 <li><i class="fas fa-user-plus"></i><a href="/register/">Register</a></li>
                 <li><i class="fas fa-edit"></i><a href="/editor">Editor Dashboard</a></li>
                 <li><i class="fas fa-bookmark"></i><a href="/GetBook/">Bookmarks</a></li>
