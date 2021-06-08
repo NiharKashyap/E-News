@@ -18,7 +18,23 @@ body
 textarea
 {
     width: 100%;
+    box-shadow: 10px 10px #fb4c1f;
 }
+
+input[type=submit]
+{
+    color: black;
+    background: #c2d1e5;
+}
+input[type=submit]:hover
+{
+    cursor: pointer;
+    color: black;
+    background: #0069D9;
+    border-radius: 0.25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
 /*NAVBAR*/
 .navbar
 {

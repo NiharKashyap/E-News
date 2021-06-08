@@ -32,8 +32,7 @@
     <div class="container">
 
         <div class="card mb-4" style="box-shadow: 10px 10px #fb4c1f;">
-            {% if request.user.is_athenticated %}
-
+            {% if request.user.is_authenticated %}
                 {% for b in Books %}
                 <div id="newses" class="card-body">
                     <h2 class="card-title">{{b.title}}</h2>
