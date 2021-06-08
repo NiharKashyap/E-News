@@ -4,7 +4,7 @@
 body
 {
     /*background: #fe793d;*/
-    background-image: url('/static/assets/texture.jpg');
+    background-image: url('/static/assets/background2.jpg');
 }
 /* Hide scrollbar for Chrome, Safari and Opera */
 body::-webkit-scrollbar {
@@ -70,6 +70,12 @@ ul
 {
     background: #fbc680;
 }
+
+.container h2
+{
+    text-align: center;
+}
+
 .card-body
 {
     background: #fbc680;
