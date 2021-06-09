@@ -85,9 +85,11 @@ def get_bookmark(request):
     
     for a in b:
         arr.append(a['news'])
-    
-    N = News.objects.all().filter(id__in = arr)
-    context = {'Books': N}
+    if len(arr)==0:
+        context = {'message': "Please add a bookmark first"}
+    else:
+        N = News.objects.all().filter(id__in = arr)
+        context = {'Books': N}
 
     return render(request, "bookmarks.html", context)
 
