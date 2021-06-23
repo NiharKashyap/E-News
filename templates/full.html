@@ -1,54 +1,75 @@
 {% load static %}
 <html>
-    <head>
-        <title>
-            {% for n in news %}
-            {{n.title}}
-            {% endfor %}
-        </title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="{% static 'css/full.css' %}">
-        <link rel="stylesheet" href="{% static 'css/all.css ' %}">
-        <link rel="shortcut icon" href="{% static 'assets/news.jpg' %}" />
-    </head>
-    <body>
-        <div class="navbar">
-            <div class="brand">
-                <img src="{% static 'assets/Brand2.png' %}" height="50px" alt="">
-            </div>
-            <ul class="links">
-                {% if request.user.is_authenticated %}
-                <li><i class="fas fa-sign-out-alt"></i><a href="/logout/">Logout</a></li>
-                {% else %}
-                <li><i class="fas fa-sign-in-alt"></i><a href="/login/">Login</a></li>
-                {% endif %}
-                <li><i class="fas fa-user-plus"></i><a href="/register/">Register</a></li>
-                <li><i class="fas fa-edit"></i><a href="/editor">Editor Dashboard</a></li>
-                
-                <li><i class="fas fa-bookmark"></i><a href="/GetBook/">Bookmarks</a></li>
-                <li><i class="fas fa-home"></i><a href="/">Home</a></li>
-            </ul>
 
-            
-        </div>
-        <div class="Outer">
+<head>
+    <title>
         {% for n in news %}
-            <div class="blog-post">
-                <h1 class="blog-post-title">{{n.title}}</h2>
-                
+        {{n.title}}
+        {% endfor %}
+    </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/full.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all.css ' %}">
+    <link rel="shortcut icon" href="{% static 'assets/news.jpg' %}" />
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="brand">
+            <img src="{% static 'assets/Brand2.png' %}" height="50px" alt="">
+        </div>
+        <ul class="links">
+            {% if request.user.is_authenticated %}
+            <li><i class="fas fa-sign-out-alt"></i><a href="/logout/">Logout</a></li>
+            {% else %}
+            <li><i class="fas fa-sign-in-alt"></i><a href="/login/">Login</a></li>
+            {% endif %}
+            <li><i class="fas fa-user-plus"></i><a href="/register/">Register</a></li>
+            <li><i class="fas fa-edit"></i><a href="/editor">Editor Dashboard</a></li>
+
+            <li><i class="fas fa-bookmark"></i><a href="/GetBook/">Bookmarks</a></li>
+            <li><i class="fas fa-home"></i><a href="/">Home</a></li>
+        </ul>
+
+
+    </div>
+    <div class="Outer">
+        {% for n in news %}
+        <div class="blog-post">
+            <h1 class="blog-post-title">{{n.title}}</h2>
+
                 <p class="blog-post-meta">Posted on {{n.posted}}</p>
                 <hr color="black">
                 <p>{{n.body}}</p>
                 {% if request.user.is_authenticated %}
                 <a class="btn btn-primary" href="/book/{{n.id}}/">Bookmark</a>
                 {% endif %}
-            </div>
-            {% endfor %}
         </div>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <script src="{% static 'js/ga.js' %}"></script>
-        
-    </body>
+        {% endfor %}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XQBFPTNFRQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-XQBFPTNFRQ');
+    </script>
+
+</body>
+
 </html>

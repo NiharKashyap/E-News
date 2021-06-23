@@ -1,41 +1,45 @@
 <!DOCTYPE html>
 {% load static %}
 <html>
-    <head>
-        <Title>
-            Index
-        </Title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-        <link rel="stylesheet" href="{% static 'css/welcome.css' %}">
-        <link rel="shortcut icon" href="{% static 'assets/news.jpg' %}" />
-    </head>
-    <body>
-        <div class="navbar">
-            <div class="brand">
-                <img src="{% static 'assets/Brand2.png' %}" height="50px" alt="">
-            </div>
-            
-            <ul class="links">
-                {% if request.user.is_authenticated %}
-                <li><i class="fas fa-sign-out-alt"></i><a href="/logout/">Logout</a></li>
-                {% else %}
-                <li><i class="fas fa-sign-in-alt"></i><a href="/login/">Login</a></li>
-                {% endif %}
-                <li><i class="fas fa-user-plus"></i><a href="/register/">Register</a></li>
-                <li><i class="fas fa-edit"></i><a href="/editor">Editor Dashboard</a></li>
-                <li><i class="fas fa-bookmark"></i><a href="/GetBook/">Bookmarks</a></li>
-                <li><i class="fas fa-home"></i><a href="/">Home</a></li>
-            </ul>
 
-            
+<head>
+    <Title>
+        Index
+    </Title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/welcome.css' %}">
+    <link rel="shortcut icon" href="{% static 'assets/news.jpg' %}" />
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="brand">
+            <img src="{% static 'assets/Brand2.png' %}" height="50px" alt="">
         </div>
-        <div class="container">
-            <h2>VAARTAH: The News Portal of Tezpur University</h2>
-            <div class="card mb-4" style="box-shadow: 10px 10px #fb4c1f;">
-                
+
+        <ul class="links">
+            {% if request.user.is_authenticated %}
+            <li><i class="fas fa-sign-out-alt"></i><a href="/logout/">Logout</a></li>
+            {% else %}
+            <li><i class="fas fa-sign-in-alt"></i><a href="/login/">Login</a></li>
+            {% endif %}
+            <li><i class="fas fa-user-plus"></i><a href="/register/">Register</a></li>
+            <li><i class="fas fa-edit"></i><a href="/editor">Editor Dashboard</a></li>
+            <li><i class="fas fa-bookmark"></i><a href="/GetBook/">Bookmarks</a></li>
+            <li><i class="fas fa-home"></i><a href="/">Home</a></li>
+        </ul>
+
+
+    </div>
+    <div class="container">
+        <h2>VAARTAH: The News Portal of Tezpur University</h2>
+        <div class="card mb-4" style="box-shadow: 10px 10px #fb4c1f;">
+
             {% for n in page_obj %}
-            <div id ="newses" class="card-body">
+            <div id="newses" class="card-body">
                 <h2 class="card-title">{{n.title}}</h2>
                 <p class="card-text">{{n.body|truncatewords:30}}</p>
                 {% if request.user.is_authenticated %}
@@ -47,28 +51,47 @@
                 Posted on {{n.posted}}
             </div>
             {% endfor %}
-            </div>
-            <div class="pagination">
-                <span class="step-links">
-                    {% if page_obj.has_previous %}
-                        <a class="btn btn-primary" href="?page=1">&laquo; First</a>
-                        <a class="btn btn-primary" href="?page={{ page_obj.previous_page_number }}">Prev</a>
-                    {% endif %}
-            
-                    <span class="current">
-                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-                    </span>
-            
-                    {% if page_obj.has_next %}
-                        <a class="btn btn-primary" href="?page={{ page_obj.next_page_number }}">Next</a>
-                        <a class="btn btn-primary" href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
-                    {% endif %}
-                </span>
-            </div>
         </div>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <script src="{% static 'js/ga.js' %}"></script>
-    </body>
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                <a class="btn btn-primary" href="?page=1">&laquo; First</a>
+                <a class="btn btn-primary" href="?page={{ page_obj.previous_page_number }}">Prev</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                {% if page_obj.has_next %}
+                <a class="btn btn-primary" href="?page={{ page_obj.next_page_number }}">Next</a>
+                <a class="btn btn-primary" href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XQBFPTNFRQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-XQBFPTNFRQ');
+    </script>
+</body>
+
 </html>
